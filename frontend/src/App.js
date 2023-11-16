@@ -1,8 +1,10 @@
-
+import Nav from './Components/Navbar/Nav';
+import './App.css';
 function App() {
   return (
     <div className="App">
-      Hello Abhishek
+      <Nav></Nav>
+      <div className='bodyContainer'></div>
     </div>
   );
 }
