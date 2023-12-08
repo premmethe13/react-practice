@@ -20,11 +20,11 @@ const express = require("express");
 const routes = express.Router();
 
 // Stationary Products API
-routes.get("/", getStationaryProducts);
-routes.get("/stationary/:id", getStationaryProductById, getStationaryProduct);
-routes.post("/stationary/add", saveStationaryProduct);
+routes.get("/products/stationary", getStationaryProducts);
+routes.get("/products/stationary/:id", getStationaryProductById, getStationaryProduct);
+routes.post("/products/stationary/add", saveStationaryProduct);
 routes.put(
-  "/stationary/update/:id",
+  "/products/stationary/update/:id",
   getStationaryProductById,
   updateStationaryProduct
 );
@@ -35,12 +35,12 @@ routes.delete(
 );
 
 // Dairy Products API
-routes.get("/", getDairyProducts);
-routes.get("/stationary/:id", getDairyProductById, getDairyProduct);
-routes.post("/stationary/add", saveDairyProduct);
-routes.put("/stationary/update/:id", getDairyProductById, updateDairyProduct);
+routes.get("/products", getDairyProducts);
+routes.get("/products/dairy/:id", getDairyProductById, getDairyProduct);
+routes.post("/products/dairy/add", saveDairyProduct);
+routes.put("/products/dairy/update/:id", getDairyProductById, updateDairyProduct);
 routes.delete(
-  "/stationary/delete/:id",
+  "/products/dairy/delete/:id",
   getDairyProductById,
   deleteDairyProduct
 );
