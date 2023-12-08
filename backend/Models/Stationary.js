@@ -1,20 +1,18 @@
-const mongoose = require('mongoose');
-
-const Schema = mongoose.Schema
-
-const StationaryProduct = new Schema({
-    name:{
-        type:String
+module.exports = (sequelize, Sequelize) => {
+  const StationaryProduct = sequelize.define("stationary_products", {
+    name: {
+      type: Sequelize.STRING,
     },
-    description:{
-        type:String
+    description: {
+      type: Sequelize.STRING,
     },
-    rating:{
-        type:Number
+    rating: {
+      type: Sequelize.INTEGER,
     },
-    price:{
-        type:Number
-    }
-});
+    price: {
+      type: Sequelize.INTEGER,
+    },
+  });
 
-module.exports = mongoose.model('Stationary Product',StationaryProduct);
+  return StationaryProduct;
+};

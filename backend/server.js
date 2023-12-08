@@ -1,23 +1,30 @@
-const mongoose = require("mongoose");
 const express = require("express");
-const routes = require('./Routes/routes');
-const bodyParser = require('body-parser');
-require('dotenv').config();
+const cors = require("cors");
 
 const app = express();
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+var corsOptions = {
+  origin: "http://localhost:3000",
+};
 
-app.use(bodyParser.json());
+app.use(cors(corsOptions));
 
-mongoose.connect(process.env.MONGODB_URL,{useNewUrlParser:true});
+app.use(express.json()); 
 
-const db = mongoose.connection;
-db.on('error',()=>{console.log('error has occured')});
-db.on('open',()=>{console.log('Connection established')});
+app.use(
+  express.urlencoded({ extended: true })
+); 
 
-app.use('/StationaryProducts/',routes)
+const db = require("./models/index");
+db.sequelize.sync();
 
-app.listen(process.env.PORT,()=>{console.log("Welcome to Backend Server ;)")})
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Products application." });
+});
+
+require("./routes/routes")(app);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
