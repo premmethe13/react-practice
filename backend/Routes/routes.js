@@ -1,11 +1,22 @@
-const {getProduct,getProductById,getProducts,saveProduct,updateProduct,deleteProduct} = require('../Controller/StationaryController');
-const express = require('express');
-const routes = express.Router();
+module.exports = (app) => {
+  const StationaryProducts = require("../controllers/stationary_controller");
+  const DairyProducts = require("../controllers/dairy_controller");
 
-routes.get('/',getProducts);
-routes.get('/:id',getProductById,getProduct);
-routes.post('/add',saveProduct);
-routes.put('/update/:id',getProductById,updateProduct);
-routes.delete('/delete/:id',getProductById,deleteProduct);
+  var router = require("express").Router();
 
-module.exports = routes;
+  router.post("/stationary", StationaryProducts.create);
+  router.get("/stationary", StationaryProducts.findAll);
+  router.get("/stationary/:id", StationaryProducts.findOne);
+  router.put("/stationary/:id", StationaryProducts.update);
+  router.delete("/stationary/:id", StationaryProducts.delete);
+  router.delete("/stationary", StationaryProducts.deleteAll);
+
+  router.post("/dairy", DairyProducts.create);
+  router.get("/dairy", DairyProducts.findAll);
+  router.get("/dairy/:id", DairyProducts.findOne);
+  router.put("/dairy/:id", DairyProducts.update);
+  router.delete("/dairy/:id", DairyProducts.delete);
+  router.delete("/dairy", DairyProducts.deleteAll);
+
+  app.use("/products", router);
+};
