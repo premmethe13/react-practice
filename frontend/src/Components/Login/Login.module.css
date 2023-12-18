@@ -1,0 +1,80 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:98vh;
+    background-color: #5d74f8;
+ }
+
+ .innerContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-height: 80%;
+    background-color: white;
+    padding: 20px;
+    border-radius:20px;
+ }
+
+ .login{
+    display:flex;
+    flex-direction: row;
+ }
+
+ .formFields{
+    display: flex;
+    flex-direction: column;
+    margin:10px 20px;
+ }
+
+ form{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+ }
+  label {
+    text-align: left;
+  }
+  
+  input,textarea {
+    margin: 10px 0;
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+  
+  button {
+    border: none;
+    background-color:	blue;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  .message{
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .btnContainer{
+    display:flex;
+    justify-content: center;
+  }
+  
+.linkbtn {
+background: none;
+color: black;
+text-decoration: none;
+margin-top:10px;
+font-size: 12px;
+} 
+
+.heading{
+ font-size: 20px;
+ font-weight: 650;
+ margin:15px;
+}

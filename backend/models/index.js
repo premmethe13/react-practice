@@ -21,5 +21,6 @@ db.sequelize = sequelize;
 
 db.stationary = require("./stationary.js")(sequelize, Sequelize);
 db.dairy = require("./dairy.js")(sequelize, Sequelize);
+db.user = require("./user.js")(sequelize, Sequelize);
 
 module.exports = db;
