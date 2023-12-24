@@ -1,6 +1,7 @@
 module.exports = (app) => {
   const StationaryProducts = require("../controllers/stationary_controller");
   const DairyProducts = require("../controllers/dairy_controller");
+  const User = require('../controllers/user_controller');
 
   var router = require("express").Router();
 
@@ -17,6 +18,13 @@ module.exports = (app) => {
   router.put("/dairy/:id", DairyProducts.update);
   router.delete("/dairy/:id", DairyProducts.delete);
   router.delete("/dairy", DairyProducts.deleteAll);
+
+  router.post("/user", User.create);
+  router.get("/user", User.findAll);
+  router.post("/auth", User.findOne);
+  router.put("/user/:id", User.update);
+  router.delete("/user/:id", User.delete);
+  router.delete("/user", User.deleteAll);
 
   app.use("/products", router);
 };

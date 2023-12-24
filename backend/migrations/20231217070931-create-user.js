@@ -6,7 +6,6 @@ module.exports = {
       id: {
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER,
       },
       name: {
@@ -16,6 +15,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
+        primaryKey: true,
         isEmail: true,
       },
       password: {
@@ -25,25 +25,12 @@ module.exports = {
       },
       address: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       phoneNo: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true,
-        validate: {
-          isValidPhoneNo: function (value) {
-            if (!value) return value;
-            var regexp = /^[0-9]+$/;
-            var values = Array.isArray(value) ? value : [value];
-            values.forEach(function (val) {
-              if (!regexp.test(val)) {
-                throw new Error("Number only is allowed.");
-              }
-            });
-            return value;
-          },
-        },
       },
       createdAt: {
         allowNull: false,
